@@ -65,6 +65,7 @@ namespace RoomBookingApp.Persistence.Tests
             //Assert
             var bookings = context.RoomBookings.ToList();
             var booking = Assert.Single(bookings);
+
             Assert.Equal(roomBooking.Date, booking.Date);
             Assert.Equal(roomBooking.RoomId, booking.RoomId);
         }
