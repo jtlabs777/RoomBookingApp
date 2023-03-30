@@ -56,6 +56,7 @@ namespace RoomBookingApp.Persistence.Tests
              .Options;
 
             var roomBooking = new RoomBooking { RoomId = 1, Date = new DateTime(2021, 06, 09), FullName = "John Doe", Email = "ddd@gmail.com" };
+
             using var context = new RoomBookingAppDbContext(dbOptions);
             var roomBookingService = new RoomBookingService(context);
             //Act
@@ -64,7 +65,6 @@ namespace RoomBookingApp.Persistence.Tests
             //Assert
             var bookings = context.RoomBookings.ToList();
             var booking = Assert.Single(bookings);
-
             Assert.Equal(roomBooking.Date, booking.Date);
             Assert.Equal(roomBooking.RoomId, booking.RoomId);
         }
